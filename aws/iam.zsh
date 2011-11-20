@@ -1,5 +1,7 @@
 # AWS Identity and Access Management Configuration
-PATH="$ZSH/aws/iam/bin:$PATH"
+# Download CLI at http://aws.amazon.com/developertools/AWS-Identity-and-Access-Management/4143
 
-export AWS_IAM_HOME="$ZSH/aws/iam"
+PATH="$HOME/.aws/iam/bin:$PATH"
+
+export AWS_IAM_HOME="$HOME/.aws/iam"
 export AWS_CREDENTIAL_FILE="$ZSH/secret/aws/iam/ckelly_cred.txt"

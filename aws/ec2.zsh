@@ -1,6 +1,8 @@
 # AWS Elastic Cloud Computing Configuration
-PATH="$ZSH/aws/ec2/bin:$PATH"
+# Download CLI at http://aws.amazon.com/developertools/351
 
-export EC2_HOME="$ZSH/aws/ec2"
+PATH="$HOME/.aws/ec2/bin:$PATH"
+
+export EC2_HOME="$HOME/.aws/ec2"
 export EC2_PRIVATE_KEY="$ZSH/secret/aws/ec2/privateKey.key"
 export EC2_CERT="$ZSH/secret/aws/ec2/certificate.pem"

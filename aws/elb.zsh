@@ -1,4 +1,6 @@
 # Elastic Load Balancer binaries
-PATH="$HOME/.dotfiles/aws/elb/bin:$PATH"
+# Download CLI at http://aws.amazon.com/developertools/2536
 
-export AWS_ELB_HOME="$ZSH/aws/elb"
+PATH="$HOME/.aws/elb/bin:$PATH"
+
+export AWS_ELB_HOME="$HOME/.aws/elb"
