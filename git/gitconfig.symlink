@@ -1,0 +1,31 @@
+[user]
+  name = Chris Kelly
+  email = amateurhuman@gmail.com
+
+[github]
+  user = chriskelly
+
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim
+
+[alias]
+  co = checkout
+  st = status -sb
+  ds = diff --staged
+
+[apply]
+  whitespace = nowarn
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+
+[color "status"]
+  added = green
+  changed = yellow
+  untracked = red
+
+[push]
+  default = tracking
