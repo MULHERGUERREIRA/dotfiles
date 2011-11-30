@@ -6,6 +6,16 @@ git_branch() {
   echo $(/usr/bin/git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
 }
 
+git_tracking() {
+  st=$(/usr/bin/git status -sb 2>/dev/null | tail -n 1 | grep behind)
+  if [[ $st == "" ]]
+  then
+    echo ""
+  else
+    echo "ˆ"
+  fi
+}
+
 git_dirty() {
   st=$(/usr/bin/git status 2>/dev/null | tail -n 1)
   if [[ $st == "" ]]
@@ -23,8 +33,7 @@ git_dirty() {
 
 git_prompt_info () {
  ref=$(/usr/bin/git symbolic-ref HEAD 2>/dev/null) || return
-# echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
- echo "${ref#refs/heads/}"
+  echo "${ref#refs/heads/}"
 }
 
 unpushed () {
