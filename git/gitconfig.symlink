@@ -10,9 +10,10 @@
   editor = vim
 
 [alias]
-  co = checkout
-  st = status -sb
-  ds = diff --staged
+  co  = checkout
+  st  = status -sb
+  ds  = diff --staged
+  lol = log --oneline
 
 [apply]
   whitespace = nowarn
