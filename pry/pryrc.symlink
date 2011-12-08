@@ -1,0 +1,9 @@
+# Load whitelisted plugins
+# Pry.config.should_load_plugins = false
+# Pry.plugins["doc", "git"].activate!
+
+# Use vim as the editor when 'edit <filename>' is called
+Pry.config.editor = "vim"
+
+# Prompt
+Pry.prompt = proc { |obj, nest_level| "#{obj}:#{nest_level}> " }
