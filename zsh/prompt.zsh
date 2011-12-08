@@ -24,9 +24,9 @@ git_dirty() {
   else
     if [[ $st == "nothing to commit (working directory clean)" ]]
     then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo "on %{$fg[green]%}$(git_prompt_info)%{$reset_color%}"
     else
-      echo "on %{$fg_bold[yellow]%}$(git_prompt_info)*%{$reset_color%}"
+      echo "on %{$fg[yellow]%}$(git_prompt_info)*%{$reset_color%}"
     fi
   fi
 }
@@ -45,7 +45,7 @@ need_push () {
   then
     echo " "
   else
-    echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
+    echo " with %{$fg[magenta]%}unpushed%{$reset_color%} "
   fi
 }
 
@@ -71,17 +71,17 @@ todo(){
 }
 
 directory_name(){
-  echo "%{$fg_bold[cyan]%}%~%\/%{$reset_color%}"
+  echo "%{$fg[blue]%}%~%\/%{$reset_color%}"
 }
 
 time_for_prompt(){
-  echo "%{$fg[magenta]%}%D{%I:%M %p}%{$reset_color%}"
+  echo "%{$fg[yellow]%}%D{%I:%M %p}%{$reset_color%}"
 }
 
 prompt_type(){
   if [[ $(whoami) == "root" ]]
   then
-    echo "%{$fg_bold[red]%}#%{$reset_colors%}"
+    echo "%{$fg[red]%}#%{$reset_colors%}"
   else
     echo "%{$fg_bold[magenta]%}›%{$reset_colors%}"
   fi
