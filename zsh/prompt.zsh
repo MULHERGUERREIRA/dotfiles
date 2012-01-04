@@ -88,8 +88,9 @@ prompt_type(){
 }
 
 export PROMPT=$'\n$(directory_name) $(git_dirty)$(need_push)\n[($(time_for_prompt)) %n@%m] $(prompt_type) '
+
 set_prompt () {
-  export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
+  export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
 
 precmd() {
