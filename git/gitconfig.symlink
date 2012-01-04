@@ -16,6 +16,7 @@
   lol = log --oneline
   ribbon = tag --force _ribbon origin/master
   catchup = log --patch --reverse --topo-order _ribbon..origin/master
+  undo = reset --soft HEAD^
 
 [apply]
   whitespace = nowarn
