@@ -1,0 +1,13 @@
+#! /bin/sh
+#
+# Decrypt the passed in snapshot
+#
+# $1 - The snapshot to decrypt
+# $2 - The output filename without extension
+#
+# Example
+#
+#   decrypt 2012.01.04.22.47.03.encore.tar.gz.enc encore
+#
+
+bundle exec backup decrypt --encryptor=openssl --in="$1" --out="$2".tar.gz
