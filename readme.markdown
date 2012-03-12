@@ -1,11 +1,11 @@
-# Chris Kelly's (@amateurhuman) dotfiles
+## Chris Kelly's (@amateurhuman) dotfiles
 
 Most of the things were stolen from other people, think of this as crowdsourced
 dotfiles. I tried to credit people where I could, but I have been assembling
 these files for so long (and not tracking where it came from) that plenty of
 hard work from others is not being credited to them.
 
-## Structure
+### Structure
 
 Credit for the basic organization of these files goes to [Zach
 Holman](https://github.com/holman). To some, this may be overkill but I have
