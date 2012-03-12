@@ -1,0 +1,12 @@
+#! /bin/sh
+#
+# Retrieve the lastest s3 backup of the passed project
+#
+# $1 - The name of the folder to retrieve from
+#
+# Example
+#
+#   grab encore
+#
+
+s3cmd get "$(s3cmd ls s3://$S3_BACKUP/"$1"/ | tail -n1 | awk '{ print $4 }')"
