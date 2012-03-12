@@ -49,27 +49,6 @@ need_push () {
   fi
 }
 
-rvm_prompt(){
-  if $(which rvm &> /dev/null)
-  then
-    echo "%{$fg_bold[yellow]%}$(rvm tools identifier)%{$reset_color%}"
-  else
-    echo ""
-  fi
-}
-
-# Count the number of TODO items in the current project, placed on the right
-# side of my prompt.
-todo(){
-  st=$(/usr/bin/git status 2>/dev/null | tail -n 1)
-  if [[ $st == "" ]]
-  then
-    echo ""
-  else
-    ack --count --ignore-dir=.bundle TODO | awk '{split($0,a,":"); sum+=a[2]} END {print sum}'
-  fi
-}
-
 directory_name(){
   echo "%{$fg[blue]%}%~%\/%{$reset_color%}"
 }
