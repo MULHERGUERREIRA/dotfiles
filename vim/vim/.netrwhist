@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/chris/projects/jude/app/controllers/jude'
+let g:netrw_dirhist_2='/Users/chris/.rbenv/versions/rbx-2.0.0-dev/gems/1.9/gems/liquid-2.3.0'
+let g:netrw_dirhist_3='/Users/chris/.rbenv/versions/rbx-2.0.0-dev/gems/1.9/gems'
+let g:netrw_dirhist_4='/Users/chris/.rbenv/versions/rbx-2.0.0-dev/gems/1.9/gems/liquid-2.3.0'
+let g:netrw_dirhist_5='/Users/chris/.rbenv/versions/rbx-2.0.0-dev/gems/1.9/gems/liquid-2.3.0/lib'
+let g:netrw_dirhist_6='/Users/chris/.rbenv/versions/rbx-2.0.0-dev/gems/1.9/gems/liquid-2.3.0/lib/liquid'
+let g:netrw_dirhist_7='/Users/chris/.dotfiles/vim'
+let g:netrw_dirhist_8='/Users/chris/.bash'
