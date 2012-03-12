@@ -9,4 +9,4 @@
 #   grab encore
 #
 
-s3cmd get "$(s3cmd ls s3://backups-sdr.0x6a7.com/backups/"$1"/ | tail -n1 | awk '{ print $4 }')"
+s3cmd get "$(s3cmd ls s3://$S3_BACKUP/"$1"/ | tail -n1 | awk '{ print $4 }')"
