@@ -1,1 +1,1 @@
-/Users/chris/src/vim-pathogen/autoload/pathogen.vim
+/Users/ckelly/projects/_opensource/vim-pathogen/autoload/pathogen.vim
