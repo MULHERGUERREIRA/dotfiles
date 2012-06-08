@@ -3,7 +3,7 @@
   email = amateurhuman@gmail.com
 
 [github]
-  user = chriskelly
+  user = amateurhuman
 
 [core]
   excludesfile = ~/.gitignore

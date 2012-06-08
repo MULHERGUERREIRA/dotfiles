@@ -85,6 +85,9 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp  " dir for swap
 " map <LEADER> to , instead of \
 let mapleader = ","
 
+" map Esc to jk for less stretching
+imap jk <Esc>
+
 " using the arrow keys are not allowd in normal mode
 noremap <Up> <nop>
 noremap <Down> <nop>
