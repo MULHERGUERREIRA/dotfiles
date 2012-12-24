@@ -135,6 +135,12 @@ map <Leader>rc :Rcontroller<CR>
 map <Leader>rm :Rmodel<CR>
 map <Leader>rv :Rview<CR>
 
+" Toggle spell checking on/off
+nmap <silent> <Leader>sc :set spell!<CR>
+
+" Toggle relative/absolute numbering
+nnoremap fj :NumbersToggle<CR>
+
 " --------------------------------------------------------------------------
 " Open a file from the directory of the current file (@garybernhardt)
 " --------------------------------------------------------------------------
