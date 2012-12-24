@@ -1,6 +1,0 @@
-alias ls='ls -Fhal'
-alias l='ls -lAh'
-alias ll='ls -l'
-alias la='ls -A'
-alias lf='ls | grep -v ^d'
-alias ld='ls -ld */'

@@ -1,1 +1,0 @@
-/Users/ckelly/projects/_opensource/vim-pathogen/autoload/pathogen.vim

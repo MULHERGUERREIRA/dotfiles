@@ -1,7 +1,0 @@
-alias reload!='. ~/.zshrc'
-alias whatsmyip='curl ifconfig.me'
-alias whereami='whatsmyip'
-alias ..='cd ..'
-alias serve='python -m SimpleHTTPServer'
-alias phantomjs-yslow='phantomjs ~/projects/yslow/build/phantomjs/yslow.js'
-alias pj='python -mjson.tool'
