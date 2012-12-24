@@ -1,6 +1,34 @@
 [user]
   name = Chris Kelly
   email = amateurhuman@gmail.com
+  helper = osxkeychain
 
 [github]
   user = amateurhuman
+
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+
+[color "status"]
+  added = green
+  changed = yellow
+  untracked = red
+
+[alias]
+  co  = checkout
+  st  = status -sb
+  ds  = diff --staged
+  lol = log --pretty=format:"%C(yellow)%h\\ %C(blue)%ad%C(red)%d\\ %C(reset)%s%C(green)\\ [%cn]" --decorate --date=short
+  undo = reset --soft HEAD^
+
+[apply]
+  whitespace = nowarn
+
+[push]
+  default = tracking
