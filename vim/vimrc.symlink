@@ -1,0 +1,148 @@
+" Chris Kelly's (@amateurhuman) .vimrc
+" Many things stolen from other people, thank you all!
+" If you want to steal from here, feel free. No credit necessary.
+
+" --------------------------------------------------------------------------
+" General Settings
+" --------------------------------------------------------------------------
+set nocompatible                  " no one wants compatibility with vi
+set hidden                        " permit hiding buffers with changes
+set history=1000                  " save 1000 lines of history
+set ffs=unix,dos,mac              " support EOL formats on these filetypes
+filetype plugin indent on         " load language-dependent indent files
+set cursorline                    " highlight the line the cursor is on
+set nowrap                        " do not wrap long lines on screen
+set textwidth=80                  " auto break lines after 80
+set showmatch                     " show matching pair of bracket/brace
+set showcmd                       " show incomplete commands
+set scrolloff=3                   " keep 3 lines before and after cursor
+set nostartofline                 " don't jump to the BOL when scrolling
+set backspace=indent,eol,start    " allow backspacing over everything
+set wildmode=longest,list         " tab complete longest common, then alts
+set wildmenu                      " menu of tab completion alternatives
+set autoread                      " reload file if changed outside of vim
+
+" --------------------------------------------------------------------------
+" Colors and Theme
+" --------------------------------------------------------------------------
+syntax on                         " enable syntax highlighting
+:set t_Co=256                     " 256 colors
+:set background=dark              " background color mode
+:color solarized                  " colorscheme
+
+" highlight trailing whitespace
+set list listchars=trail:.,tab:>.
+highlight SpecialKey ctermfg=DarkGray ctermbg=Black
+
+" --------------------------------------------------------------------------
+" Indents and Tabs
+" --------------------------------------------------------------------------
+set autoindent                    " automatically ident new lines
+set smartindent                   " use smart rules for indenting
+set expandtab                     " expand tabs into spaces
+set softtabstop=2                 " tabs are two spaces
+set shiftwidth=2                  " indent with two spaces
+set tabstop=4                     " <TAB> in a file should stay 4
+
+" --------------------------------------------------------------------------
+" Window, Split and Command Line Management
+" See split nav mappings in key mappings section
+" --------------------------------------------------------------------------
+set winheight=5                   " leave 5 lines showing in all splits
+set winminheight=5
+set winheight=999                 " expand current split to max
+set winwidth=88
+set laststatus=2                  " window always has a statusline
+set cmdheight=2                   " command line is always 2 high
+set number                        " show line numbers always
+set numberwidth=5                 " line numbers are 5 columns
+
+" --------------------------------------------------------------------------
+" Searching
+" Clear highlight with return in key mappings section
+" --------------------------------------------------------------------------
+set incsearch                     " searching incrementally
+set hlsearch                      " highlight searches
+set ignorecase                    " ignore case when searching
+set smartcase                     " don't ignore case if search has uppers
+
+" --------------------------------------------------------------------------
+" Backups
+" --------------------------------------------------------------------------
+set backup                        " make backup before overwriting file
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp  " dir for backups
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp  " dir for swap
+
+" --------------------------------------------------------------------------
+" Key Mappings
+" --------------------------------------------------------------------------
+" map <LEADER> to , instead of \
+let mapleader = ","
+
+" using the arrow keys are not allowd in normal mode
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+
+" emacs movement keybindings in insert mode
+imap <C-a> <C-o>0
+imap <C-e> <C-o>$
+
+" move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" clear highlight with return
+:nnoremap <CR> :nohlsearch<cr>
+
+" insert a hash rocket with <c-j>
+imap <c-j> <space>=><space>
+
+" CommandT mappings for even faster finding
+" always run CommandTFlush before running CommandT
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
+map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
+map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
+map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
+map <leader>gs :CommandTFlush<cr>\|:CommandT spec<cr>
+map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
+
+" manage splits and window widths
+map <Leader>hd :set columns=178<CR>
+map <Leader>dw :set columns=178<CR>\|:vsplit<CR>
+map <Leader>sd :set columns=88<CR>
+
+" Switch between last two files
+nnoremap <leader><leader> <c-^>
+
+" maps for jumping between MVC
+map <Leader>rc :Rcontroller<CR>
+map <Leader>rm :Rmodel<CR>
+map <Leader>rv :Rview<CR>
+
+" --------------------------------------------------------------------------
+" Open a file from the directory of the current file (@garybernhardt)
+" --------------------------------------------------------------------------
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
+
+" --------------------------------------------------------------------------
+" Rename current file (@garybernhardt)
+" --------------------------------------------------------------------------
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'))
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>rn :call RenameFile()<cr>
