@@ -1,24 +1,35 @@
+#!/bin/zsh
+
+# Need this so the prompt will work.
+setopt prompt_subst
+setopt extended_glob
+
+# Use colors.
 autoload colors && colors
 
-directory_name(){
-  echo "%{$fg_bold[cyan]%}%~%\/%{$reset_color%}"
+directory_name() {
+  echo "%{$fg[blue]%}%~%\/%{$reset_color%}"
 }
 
 git_branch() {
-  echo $(/usr/bin/git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
+ ref=$(/usr/bin/git symbolic-ref HEAD 2>/dev/null) || return
+ echo "${ref#refs/heads/}"
 }
 
-git_tracking() {
-  st=$(/usr/bin/git status -sb 2>/dev/null | tail -n 1 | grep behind)
-  if [[ $st == "" ]]
+unpushed() {
+  /usr/bin/git cherry -v @{upstream} 2>/dev/null
+}
+
+need_push() {
+  if [[ $(unpushed) == "" ]]
   then
-    echo ""
+    echo " "
   else
-    echo "ˆ"
+    echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
   fi
 }
 
-git_dirty() {
+git_status() {
   st=$(/usr/bin/git status 2>/dev/null | tail -n 1)
   if [[ $st == "" ]]
   then
@@ -26,41 +37,31 @@ git_dirty() {
   else
     if [[ $st == "nothing to commit (working directory clean)" ]]
     then
-      echo "on %{$fg[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo "on %{$fg_bold[green]%}$(git_branch)$(need_push)%{$reset_color%}"
     else
-      echo "on %{$fg[yellow]%}$(git_prompt_info)*%{$reset_color%}"
+      echo "on %{$fg_bold[red]%}$(git_branch)$(need_push)%{$reset_color%}"
     fi
   fi
 }
 
-git_prompt_info () {
- ref=$(/usr/bin/git symbolic-ref HEAD 2>/dev/null) || return
-  echo "${ref#refs/heads/}"
-}
-
-unpushed () {
-  /usr/bin/git cherry -v origin/$(git_branch) 2>/dev/null
-}
-
-need_push () {
-  if [[ $(unpushed) == "" ]]
-  then
-    echo " "
-  else
-    echo " with %{$fg[magenta]%}unpushed%{$reset_color%} "
-  fi
-}
-
-rb_prompt(){
+ruby_version() {
   if $(which rbenv &> /dev/null)
   then
-    echo "%{$fg_bold[magenta]%}$(rbenv version | awk '{print $1}')%{$reset_color%}"
+    echo "%{$fg_bold[yellow]%}$(rbenv version | awk '{print $1}')%{$reset_color%}"
   else
     echo ""
   fi
 }
 
-TOP_LINE=$(directory_name)' '$(git_dirty)
-BOTTOM_LINE=$(rb_prompt)' › '
+precmd() {
+  set_prompt
+}
 
-export PROMPT=$'\n'${TOP_LINE}$'\n'${BOTTOM_LINE}
+preexec() {
+}
+
+set_prompt() {
+  PROMPT=$'\n'$(directory_name)' '$(git_status)$'\n'$(ruby_version)' › '
+}
+
+set_prompt
