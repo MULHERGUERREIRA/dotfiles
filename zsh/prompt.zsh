@@ -16,8 +16,8 @@ git_branch() {
  echo "${ref#refs/heads/}"
 }
 
-unpushed() {
-  /usr/bin/git cherry -v @{upstream} 2>/dev/null
+unpushed () {
+  /usr/bin/git cherry -v origin/$(git_branch) 2>/dev/null
 }
 
 need_push() {
@@ -25,7 +25,7 @@ need_push() {
   then
     echo " "
   else
-    echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
+    echo "%{$reset_color%} with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
   fi
 }
 
