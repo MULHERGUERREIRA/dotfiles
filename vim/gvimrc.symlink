@@ -2,7 +2,6 @@
 "  GRAPHICAL
 " -----------------------------------------------------------
 winpos 0 0
-" colorscheme railscasts-pro
 colorscheme tomorrow-night
 
 set gfn=DejaVu\ Sans\ Mono:h13

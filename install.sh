@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 if [ $SHELL != '/bin/zsh' ]; then
   chsh -s $(which zsh)

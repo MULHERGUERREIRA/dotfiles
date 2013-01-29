@@ -2,6 +2,9 @@
 " Many things stolen from other people, thank you all!
 " If you want to steal from here, feel free. No credit necessary.
 
+" Manage plugins with pathogen
+execute pathogen#infect()
+
 " --------------------------------------------------------------------------
 " General Settings
 " --------------------------------------------------------------------------
