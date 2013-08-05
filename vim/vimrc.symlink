@@ -22,6 +22,7 @@ set scrolloff=3                   " keep 3 lines before and after cursor
 set nostartofline                 " don't jump to the BOL when scrolling
 set backspace=indent,eol,start    " allow backspacing over everything
 set wildmode=longest,list         " tab complete longest common, then alts
+set wildignore=tmp/**
 set wildmenu                      " menu of tab completion alternatives
 set autoread                      " reload file if changed outside of vim
 

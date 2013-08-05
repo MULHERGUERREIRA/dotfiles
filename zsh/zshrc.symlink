@@ -19,3 +19,9 @@ export PATH
 
 # load every completion after autocomplete loads
 # for config_file ($ZSH/**/completion.sh) source $config_file
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# Souce RBENV last because computers are broken
+source "$ZSH/rbenv/rbenv.zsh"
