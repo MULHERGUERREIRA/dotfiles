@@ -5,7 +5,7 @@
 " --------------------------------------------------------------------------
 " Load Pathogen Plugin Manager
 " --------------------------------------------------------------------------
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 call pathogen#helptags()
 
 " --------------------------------------------------------------------------
@@ -87,6 +87,7 @@ let mapleader = ","
 
 " map Esc to jk for less stretching
 imap jk <Esc>
+imap kj <Esc>
 
 " using the arrow keys are not allowd in normal mode
 noremap <Up> <nop>
