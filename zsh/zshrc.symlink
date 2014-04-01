@@ -1,8 +1,11 @@
+# source Boxen environment first
+source /opt/boxen/env.sh
+
 # shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/projects/dotfiles
+export ZSH=$HOME/Repos/dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=$HOME/projects
+export PROJECTS=$HOME/Repos
 
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
