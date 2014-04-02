@@ -42,9 +42,6 @@ syntax on                         " enable syntax highlighting
 set list listchars=trail:.,tab:>.
 highlight SpecialKey ctermfg=DarkGray ctermbg=Black
 
-" Airline config
-let g:airline_powerline_fonts = 1
-
 " --------------------------------------------------------------------------
 " Indents and Tabs
 " --------------------------------------------------------------------------
