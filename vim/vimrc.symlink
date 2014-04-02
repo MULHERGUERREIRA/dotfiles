@@ -3,7 +3,7 @@
 " If you want to steal from here, feel free. No credit necessary.
 
 " --------------------------------------------------------------------------
-" Load Plugins
+" Load & Configure Plugins
 " --------------------------------------------------------------------------
 call pathogen#infect()
 call pathogen#helptags()
@@ -28,7 +28,7 @@ set backspace=indent,eol,start    " allow backspacing over everything
 set wildmode=longest,list         " tab complete longest common, then alts
 set wildmenu                      " menu of tab completion alternatives
 set autoread                      " reload file if changed outside of vim
-set ttimeoutlen=50
+set encoding=utf-8                " Necessary to show Unicode glyphs
 
 " --------------------------------------------------------------------------
 " Colors and Theme
@@ -36,7 +36,7 @@ set ttimeoutlen=50
 syntax on                         " enable syntax highlighting
 :set t_Co=256                     " 256 colors
 :set background=dark              " background color mode
-:color solarized " colorscheme
+:color solarized                  " colorscheme
 
 " highlight trailing whitespace
 set list listchars=trail:.,tab:>.
@@ -113,18 +113,6 @@ nnoremap <c-l> <c-w>l
 " insert a hash rocket with <c-j>
 imap <c-j> <space>=><space>
 
-" CommandT mappings for even faster finding
-" always run CommandTFlush before running CommandT
-" map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-" map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
-" map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-" map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-" map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-" map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-" map <leader>gs :CommandTFlush<cr>\|:CommandT spec<cr>
-" map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-" map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
-
 " manage splits and window widths
 map <Leader>hd :set columns=178<CR>
 map <Leader>dw :set columns=178<CR>\|:vsplit<CR>
@@ -133,16 +121,24 @@ map <Leader>sd :set columns=88<CR>
 " Switch between last two files
 nnoremap <leader><leader> <c-^>
 
-" maps for jumping between MVC
-map <Leader>rc :Rcontroller<CR>
-map <Leader>rm :Rmodel<CR>
-map <Leader>rv :Rview<CR>
-
 " Toggle spell checking on/off
 nmap <silent> <Leader>sc :set spell!<CR>
 
 " Toggle relative/absolute numbering
 nnoremap fj :NumbersToggle<CR>
+
+" -------------------------------------------------------
+" Configure Powerline
+" -------------------------------------------------------
+let g:Powerline_mode_n = 'N'
+let g:Powerline_mode_i = 'I'
+let g:Powerline_mode_R = 'R'
+let g:Powerline_mode_v = 'V'
+let g:Powerline_mode_V = 'VL'
+let g:Powerline_mode_cv = 'VB'
+let g:Powerline_mode_s = 'S'
+let g:Powerline_mode_S = 'SL'
+let g:Powerline_mode_cs = 'SB'
 
 " --------------------------------------------------------------------------
 " Open a file from the directory of the current file (@garybernhardt)
