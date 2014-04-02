@@ -34,11 +34,14 @@ set autoread                      " reload file if changed outside of vim
 syntax on                         " enable syntax highlighting
 :set t_Co=256                     " 256 colors
 :set background=dark              " background color mode
-:color solarized                  " colorscheme
+:color solarized " colorscheme
 
 " highlight trailing whitespace
 set list listchars=trail:.,tab:>.
 highlight SpecialKey ctermfg=DarkGray ctermbg=Black
+
+" Airline config
+let g:airline_powerline_fonts = 1
 
 " --------------------------------------------------------------------------
 " Indents and Tabs
