@@ -3,10 +3,11 @@
 " If you want to steal from here, feel free. No credit necessary.
 
 " --------------------------------------------------------------------------
-" Load Pathogen Plugin Manager
+" Load Plugins
 " --------------------------------------------------------------------------
 call pathogen#infect()
 call pathogen#helptags()
+set runtimepath^=~/.vim/bundle/ctrlp
 
 " --------------------------------------------------------------------------
 " General Settings
@@ -27,6 +28,7 @@ set backspace=indent,eol,start    " allow backspacing over everything
 set wildmode=longest,list         " tab complete longest common, then alts
 set wildmenu                      " menu of tab completion alternatives
 set autoread                      " reload file if changed outside of vim
+set ttimeoutlen=50
 
 " --------------------------------------------------------------------------
 " Colors and Theme
@@ -116,15 +118,15 @@ imap <c-j> <space>=><space>
 
 " CommandT mappings for even faster finding
 " always run CommandTFlush before running CommandT
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
-map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-map <leader>gs :CommandTFlush<cr>\|:CommandT spec<cr>
-map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
+" map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+" map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+" map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
+" map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
+" map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
+" map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
+" map <leader>gs :CommandTFlush<cr>\|:CommandT spec<cr>
+" map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+" map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
 
 " manage splits and window widths
 map <Leader>hd :set columns=178<CR>
