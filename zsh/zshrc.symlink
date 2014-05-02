@@ -7,6 +7,9 @@ export ZSH=$HOME/Repos/dotfiles
 # your project folder that we can `c [tab]` to
 export PROJECTS=$HOME/Repos
 
+# directory for all github org repos
+export GITHUB_DIR=$HOME/github
+
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
 
